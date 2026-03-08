@@ -83,6 +83,82 @@
       margin: 0 auto;
       padding: 0 1.5rem;
     }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-top: var(--nav-h);
+    }
+
+    .hero-tag {
+      display: inline-block;
+      color: var(--accent);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    #hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+      letter-spacing: -0.02em;
+    }
+
+    #hero .subtitle {
+      font-size: 1.1rem;
+      color: var(--muted);
+      margin-bottom: 0.5rem;
+    }
+
+    #hero .location {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.6rem 1.25rem;
+      border-radius: var(--radius);
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: opacity 0.2s, transform 0.15s;
+      cursor: pointer;
+    }
+
+    .btn:hover { opacity: 0.85; transform: translateY(-1px); text-decoration: none; }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #0d1117;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 5rem 0;
+    }
   </style>
 </head>
 <body>
@@ -100,7 +176,19 @@
   </nav>
 
   <main>
-    <!-- sections go here -->
+    <section id="hero">
+      <span class="hero-tag">Backend Engineer</span>
+      <h1>Chiranjeet<br />Baruah</h1>
+      <p class="subtitle">Golang · Distributed Systems · Microservices</p>
+      <p class="location">📍 Bengaluru, Karnataka, India</p>
+      <div class="hero-ctas">
+        <a href="https://github.com/chiranjeet-baruah" target="_blank" rel="noopener" class="btn btn-primary">GitHub ↗</a>
+        <a href="mailto:chiranjeetbaruah@yahoo.in" class="btn btn-secondary">Email me</a>
+        <a href="#experience" class="btn btn-secondary">View experience ↓</a>
+      </div>
+    </section>
+
+    <div class="divider"></div>
   </main>
 
   <script>
