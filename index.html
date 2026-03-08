@@ -282,6 +282,32 @@
       border-color: var(--accent);
       color: var(--accent);
     }
+
+    /* ── EDUCATION ── */
+    .edu-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+    }
+
+    .edu-item {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+    }
+
+    .edu-degree {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+    }
+
+    .edu-school {
+      font-size: 0.9rem;
+      color: var(--accent);
+      margin-top: 0.2rem;
+    }
   </style>
 </head>
 <body>
@@ -422,6 +448,23 @@
         <span class="skill-pill">Google Cloud Platform</span>
         <span class="skill-pill">Apache Airflow</span>
         <span class="skill-pill">Jenkins</span>
+      </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <section id="education">
+      <p class="section-label">Education</p>
+      <h2>Academic background.</h2>
+      <div class="edu-list">
+        <div class="edu-item">
+          <div class="edu-degree">Master of Technology (MTech) — Information Technology</div>
+          <div class="edu-school">Tezpur University</div>
+        </div>
+        <div class="edu-item">
+          <div class="edu-degree">Bachelor of Engineering (BE) — Computer Science and Engineering</div>
+          <div class="edu-school">Gauhati University, Guwahati</div>
+        </div>
       </div>
     </section>
 
