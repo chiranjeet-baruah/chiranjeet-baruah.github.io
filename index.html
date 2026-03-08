@@ -361,6 +361,23 @@
       margin-top: 4rem;
     }
 
+    /* ── SCROLL FADE-IN ── */
+    @media (prefers-reduced-motion: no-preference) {
+      .fade-up {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+      .fade-up.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      .timeline .job:nth-child(1) { transition-delay: 0s; }
+      .timeline .job:nth-child(2) { transition-delay: 0.1s; }
+      .timeline .job:nth-child(3) { transition-delay: 0.2s; }
+      .timeline .job:nth-child(4) { transition-delay: 0.3s; }
+    }
+
     /* ── HERO LOAD ANIMATION ── */
     @keyframes fadeInUp {
       from { opacity: 0; transform: translateY(16px); }
@@ -423,7 +440,7 @@
     <section id="about">
       <p class="section-label">About</p>
       <h2>Building systems that scale.</h2>
-      <p>
+      <p class="fade-up">
         Backend Software Engineer with 6+ years of experience building robust and scalable applications.
         Strong expertise in Golang, REST APIs, Kafka, PostgreSQL, and microservices architecture,
         with a focus on distributed systems and event-driven architectures.
@@ -437,7 +454,7 @@
       <h2>Where I've worked.</h2>
       <div class="timeline">
 
-        <div class="job">
+        <div class="job fade-up">
           <div class="job-header">
             <div>
               <div class="job-company">Truecaller</div>
@@ -457,7 +474,7 @@
           </ul>
         </div>
 
-        <div class="job">
+        <div class="job fade-up">
           <div class="job-header">
             <div>
               <div class="job-company">Hearst Magazines</div>
@@ -475,7 +492,7 @@
           </ul>
         </div>
 
-        <div class="job">
+        <div class="job fade-up">
           <div class="job-header">
             <div>
               <div class="job-company">Semantics3</div>
@@ -493,7 +510,7 @@
           </ul>
         </div>
 
-        <div class="job">
+        <div class="job fade-up">
           <div class="job-header">
             <div>
               <div class="job-company">Tezpur University</div>
@@ -518,7 +535,7 @@
     <section id="skills">
       <p class="section-label">Skills</p>
       <h2>What I work with.</h2>
-      <div class="skills-grid">
+      <div class="skills-grid fade-up">
         <span class="skill-pill">Golang</span>
         <span class="skill-pill">Kafka</span>
         <span class="skill-pill">PostgreSQL</span>
@@ -538,11 +555,11 @@
       <p class="section-label">Education</p>
       <h2>Academic background.</h2>
       <div class="edu-list">
-        <div class="edu-item">
+        <div class="edu-item fade-up">
           <div class="edu-degree">Master of Technology (MTech) — Information Technology</div>
           <div class="edu-school">Tezpur University</div>
         </div>
-        <div class="edu-item">
+        <div class="edu-item fade-up">
           <div class="edu-degree">Bachelor of Engineering (BE) — Computer Science and Engineering</div>
           <div class="edu-school">Gauhati University, Guwahati</div>
         </div>
@@ -554,7 +571,7 @@
     <section id="contact">
       <p class="section-label">Contact</p>
       <h2>Get in touch.</h2>
-      <p class="intro">Open to interesting backend challenges, distributed systems work, or just a good engineering conversation.</p>
+      <p class="intro fade-up">Open to interesting backend challenges, distributed systems work, or just a good engineering conversation.</p>
       <div class="contact-links">
         <a href="mailto:chiranjeetbaruah@yahoo.in" class="btn btn-primary">✉ Email</a>
         <a href="https://linkedin.com/in/chiranjeet-baruah" target="_blank" rel="noopener" class="btn btn-secondary">LinkedIn ↗</a>
@@ -583,6 +600,18 @@
       });
     }, { rootMargin: '-40% 0px -55% 0px' });
     sections.forEach(s => observer.observe(s));
+
+    // Scroll fade-in for content elements
+    const fadeEls = document.querySelectorAll('.fade-up');
+    const fadeObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          fadeObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+    fadeEls.forEach(el => fadeObserver.observe(el));
   </script>
 
 </body>
