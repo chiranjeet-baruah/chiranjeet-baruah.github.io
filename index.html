@@ -332,6 +332,22 @@
       border-top: 1px solid var(--border);
       margin-top: 4rem;
     }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 640px) {
+      nav { padding: 0 1rem; }
+
+      .nav-links { gap: 1rem; }
+      .nav-links li:nth-child(n+4) { display: none; }
+
+      #hero h1 { font-size: 2.5rem; }
+
+      .job-header { flex-direction: column; }
+      .job-meta { text-align: left; }
+
+      .hero-ctas, .contact-links { flex-direction: column; }
+      .btn { justify-content: center; }
+    }
   </style>
 </head>
 <body>
