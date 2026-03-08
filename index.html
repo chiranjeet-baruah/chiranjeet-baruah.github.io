@@ -308,6 +308,30 @@
       color: var(--accent);
       margin-top: 0.2rem;
     }
+
+    /* ── CONTACT ── */
+    #contact p.intro {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      max-width: 540px;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 3rem 1.5rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      margin-top: 4rem;
+    }
   </style>
 </head>
 <body>
@@ -469,7 +493,24 @@
     </section>
 
     <div class="divider"></div>
+
+    <section id="contact">
+      <p class="section-label">Contact</p>
+      <h2>Get in touch.</h2>
+      <p class="intro">Open to interesting backend challenges, distributed systems work, or just a good engineering conversation.</p>
+      <div class="contact-links">
+        <a href="mailto:chiranjeetbaruah@yahoo.in" class="btn btn-primary">✉ Email</a>
+        <a href="https://linkedin.com/in/chiranjeet-baruah" target="_blank" rel="noopener" class="btn btn-secondary">LinkedIn ↗</a>
+        <a href="https://github.com/chiranjeet-baruah" target="_blank" rel="noopener" class="btn btn-secondary">GitHub ↗</a>
+        <a href="https://medium.com/@chiranjeetbaruah" target="_blank" rel="noopener" class="btn btn-secondary">Blog ↗</a>
+      </div>
+    </section>
+
   </main>
+
+  <footer>
+    <p>Built by Chiranjeet Baruah · <a href="https://github.com/chiranjeet-baruah/chiranjeet-baruah.github.io">Source ↗</a></p>
+  </footer>
 
   <script>
     // Active nav link on scroll — edit nothing here
