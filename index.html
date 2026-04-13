@@ -4,6 +4,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Chiranjeet Baruah — Backend Engineer</title>
+  <meta name="description" content="Chiranjeet Baruah — Backend Engineer specializing in Golang, distributed systems, and microservices. Based in Bengaluru, India.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Chiranjeet Baruah — Backend Engineer">
+  <meta property="og:description" content="Backend Engineer specializing in Golang, distributed systems, and microservices.">
+  <meta property="og:url" content="https://chiranjeet-baruah.github.io/">
+  <meta property="og:site_name" content="Chiranjeet Baruah">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Chiranjeet Baruah — Backend Engineer">
+  <meta name="twitter:description" content="Backend Engineer specializing in Golang, distributed systems, and microservices.">
+  <link rel="canonical" href="https://chiranjeet-baruah.github.io/">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230d1117'/%3E%3Ctext x='16' y='23' font-family='sans-serif' font-size='18' font-weight='700' fill='%2300d4aa' text-anchor='middle'%3ECB%3C/text%3E%3C/svg%3E">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Chiranjeet Baruah",
+    "url": "https://chiranjeet-baruah.github.io/",
+    "jobTitle": "Backend Engineer",
+    "worksFor": { "@type": "Organization", "name": "Truecaller" },
+    "address": { "@type": "PostalAddress", "addressLocality": "Bengaluru", "addressCountry": "IN" },
+    "sameAs": [
+      "https://github.com/chiranjeet-baruah",
+      "https://linkedin.com/in/chiranjeet-baruah",
+      "https://medium.com/@chiranjeetbaruah"
+    ]
+  }
+  </script>
   <style>
     /* ── EASY CUSTOMIZATION: edit these variables ── */
     :root {
@@ -15,13 +42,19 @@
       --muted:   #8b949e;
       --radius:  8px;
       --nav-h:   60px;
+      --accent-light: #7ee8d0;
+      --accent-rgb:   0, 212, 170;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     html {
-      scroll-behavior: smooth;
+      scroll-behavior: auto;
       font-size: 16px;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      html { scroll-behavior: smooth; }
     }
 
     body {
@@ -33,6 +66,29 @@
 
     a { color: var(--accent); text-decoration: none; }
     a:hover { text-decoration: underline; }
+
+    a:focus-visible,
+    .btn:focus-visible,
+    .nav-links a:focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100%;
+      left: 0;
+      background: var(--accent);
+      color: var(--bg);
+      padding: 0.5rem 1rem;
+      z-index: 200;
+      font-weight: 600;
+      border-radius: 0 0 var(--radius) 0;
+    }
+    .skip-link:focus {
+      top: 0;
+    }
 
     section { scroll-margin-top: var(--nav-h); }
 
@@ -50,6 +106,10 @@
       justify-content: space-between;
       padding: 0 2rem;
       z-index: 100;
+    }
+
+    @supports not (backdrop-filter: blur(12px)) {
+      nav { background: var(--bg); }
     }
 
     .nav-logo {
@@ -77,6 +137,24 @@
       text-decoration: none;
     }
 
+    .nav-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.5rem;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .nav-toggle-bar {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: transform 0.2s, opacity 0.2s;
+    }
+
     /* ── LAYOUT ── */
     main {
       max-width: 860px;
@@ -91,7 +169,7 @@
       flex-direction: column;
       justify-content: center;
       padding-top: var(--nav-h);
-      background: radial-gradient(ellipse 80% 50% at 50% 10%, rgba(0,212,170,0.07) 0%, transparent 70%);
+      background: radial-gradient(ellipse 80% 50% at 50% 10%, rgba(var(--accent-rgb), 0.07) 0%, transparent 70%);
     }
 
     .hero-tag {
@@ -110,7 +188,7 @@
       line-height: 1.15;
       margin-bottom: 1rem;
       letter-spacing: -0.02em;
-      background: linear-gradient(135deg, #00d4aa 0%, #7ee8d0 100%);
+      background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -150,7 +228,7 @@
 
     .btn-primary {
       background: var(--accent);
-      color: #0d1117;
+      color: var(--bg);
     }
 
     .btn-secondary {
@@ -220,13 +298,9 @@
     }
 
     .job:hover {
-      border-color: rgba(0, 212, 170, 0.35);
+      border-color: rgba(var(--accent-rgb), 0.35);
       transform: translateY(-2px);
-      box-shadow: 0 0 0 1px rgba(0, 212, 170, 0.2), 0 4px 16px rgba(0, 212, 170, 0.08);
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      .job:hover { transform: none; }
+      box-shadow: 0 0 0 1px rgba(var(--accent-rgb), 0.2), 0 4px 16px rgba(var(--accent-rgb), 0.08);
     }
 
     .job-header {
@@ -308,7 +382,20 @@
     .skill-pill:hover {
       border-color: var(--accent);
       color: var(--accent);
-      box-shadow: 0 0 8px rgba(0, 212, 170, 0.2);
+      box-shadow: 0 0 8px rgba(var(--accent-rgb), 0.2);
+    }
+
+    .skill-category {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-top: 1.25rem;
+      margin-bottom: 0.5rem;
+    }
+    .skill-category:first-child {
+      margin-top: 0;
     }
 
     /* ── EDUCATION ── */
@@ -334,6 +421,12 @@
     .edu-school {
       font-size: 0.9rem;
       color: var(--accent);
+      margin-top: 0.2rem;
+    }
+
+    .edu-period {
+      font-size: 0.8rem;
+      color: var(--muted);
       margin-top: 0.2rem;
     }
 
@@ -395,8 +488,29 @@
     @media (max-width: 640px) {
       nav { padding: 0 1rem; }
 
-      .nav-links { gap: 1rem; }
-      .nav-links li:nth-child(n+4) { display: none; }
+      .nav-toggle { display: flex; }
+
+      .nav-links {
+        position: absolute;
+        top: var(--nav-h);
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: rgba(13, 17, 23, 0.97);
+        border-bottom: 1px solid var(--border);
+        padding: 0;
+        gap: 0;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+      }
+
+      .nav-links.open {
+        max-height: 320px;
+        padding: 1rem;
+      }
+
+      .nav-links li { padding: 0.5rem 0; }
 
       #hero h1 { font-size: 2.5rem; }
 
@@ -406,30 +520,48 @@
       .hero-ctas, .contact-links { flex-direction: column; }
       .btn { justify-content: center; }
     }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .job:hover { transform: none; }
+      .btn:hover { transform: none; }
+      .skill-pill:hover { box-shadow: none; }
+      .nav-links { transition: none; }
+      .nav-toggle-bar { transition: none; }
+    }
   </style>
+  <noscript>
+    <style>.fade-up { opacity: 1 !important; transform: none !important; }</style>
+  </noscript>
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to content</a>
 
   <nav aria-label="Primary">
     <span class="nav-logo">CB</span>
-    <ul class="nav-links">
+    <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false" aria-controls="nav-menu">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <ul class="nav-links" id="nav-menu">
       <li><a href="#about">About</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#skills">Skills</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
-      <li><a href="https://github.com/chiranjeet-baruah" target="_blank" rel="noopener">GitHub ↗</a></li>
+      <li><a href="https://github.com/chiranjeet-baruah" target="_blank" rel="noopener" aria-label="GitHub (opens in new window)">GitHub ↗</a></li>
     </ul>
   </nav>
 
-  <main>
+  <main id="main">
     <section id="hero">
       <span class="hero-tag">Backend Engineer</span>
       <h1>Chiranjeet<br />Baruah</h1>
       <p class="subtitle">Golang · Distributed Systems · Microservices</p>
       <p class="location">📍 Bengaluru, Karnataka, India</p>
       <div class="hero-ctas">
-        <a href="https://github.com/chiranjeet-baruah" target="_blank" rel="noopener" class="btn btn-primary">GitHub ↗</a>
+        <a href="https://github.com/chiranjeet-baruah" target="_blank" rel="noopener" class="btn btn-primary" aria-label="GitHub (opens in new window)">GitHub ↗</a>
         <a href="mailto:chiranjeetbaruah@yahoo.in" class="btn btn-secondary">Email me</a>
         <a href="#experience" class="btn btn-secondary">View experience ↓</a>
       </div>
@@ -535,17 +667,26 @@
     <section id="skills">
       <p class="section-label">Skills</p>
       <h2>What I work with.</h2>
-      <div class="skills-grid fade-up">
-        <span class="skill-pill">Golang</span>
-        <span class="skill-pill">Kafka</span>
-        <span class="skill-pill">PostgreSQL</span>
-        <span class="skill-pill">REST APIs</span>
-        <span class="skill-pill">Microservices</span>
-        <span class="skill-pill">Distributed Systems</span>
-        <span class="skill-pill">Event-Driven Architecture</span>
-        <span class="skill-pill">Google Cloud Platform</span>
-        <span class="skill-pill">Apache Airflow</span>
-        <span class="skill-pill">Jenkins</span>
+      <div class="fade-up">
+        <h3 class="skill-category">Languages</h3>
+        <div class="skills-grid">
+          <span class="skill-pill">Golang</span>
+        </div>
+        <h3 class="skill-category">Infrastructure</h3>
+        <div class="skills-grid">
+          <span class="skill-pill">Kafka</span>
+          <span class="skill-pill">PostgreSQL</span>
+          <span class="skill-pill">Google Cloud Platform</span>
+          <span class="skill-pill">Microservices</span>
+          <span class="skill-pill">Distributed Systems</span>
+          <span class="skill-pill">Event-Driven Architecture</span>
+        </div>
+        <h3 class="skill-category">Tools</h3>
+        <div class="skills-grid">
+          <span class="skill-pill">REST APIs</span>
+          <span class="skill-pill">Apache Airflow</span>
+          <span class="skill-pill">Jenkins</span>
+        </div>
       </div>
     </section>
 
@@ -558,10 +699,12 @@
         <div class="edu-item fade-up">
           <div class="edu-degree">Master of Technology (MTech) — Information Technology</div>
           <div class="edu-school">Tezpur University</div>
+          <div class="edu-period">2018</div>
         </div>
         <div class="edu-item fade-up">
           <div class="edu-degree">Bachelor of Engineering (BE) — Computer Science and Engineering</div>
           <div class="edu-school">Gauhati University, Guwahati</div>
+          <div class="edu-period">2016</div>
         </div>
       </div>
     </section>
@@ -574,9 +717,9 @@
       <p class="intro fade-up">Open to interesting backend challenges, distributed systems work, or just a good engineering conversation.</p>
       <div class="contact-links">
         <a href="mailto:chiranjeetbaruah@yahoo.in" class="btn btn-primary">✉ Email</a>
-        <a href="https://linkedin.com/in/chiranjeet-baruah" target="_blank" rel="noopener" class="btn btn-secondary">LinkedIn ↗</a>
-        <a href="https://github.com/chiranjeet-baruah" target="_blank" rel="noopener" class="btn btn-secondary">GitHub ↗</a>
-        <a href="https://medium.com/@chiranjeetbaruah" target="_blank" rel="noopener" class="btn btn-secondary">Blog ↗</a>
+        <a href="https://linkedin.com/in/chiranjeet-baruah" target="_blank" rel="noopener" class="btn btn-secondary" aria-label="LinkedIn (opens in new window)">LinkedIn ↗</a>
+        <a href="https://github.com/chiranjeet-baruah" target="_blank" rel="noopener" class="btn btn-secondary" aria-label="GitHub (opens in new window)">GitHub ↗</a>
+        <a href="https://medium.com/@chiranjeetbaruah" target="_blank" rel="noopener" class="btn btn-secondary" aria-label="Blog (opens in new window)">Blog ↗</a>
       </div>
     </section>
 
@@ -612,6 +755,23 @@
       });
     }, { threshold: 0.15 });
     fadeEls.forEach(el => fadeObserver.observe(el));
+
+    // Mobile nav toggle
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-links');
+    if (navToggle && navMenu) {
+      navToggle.addEventListener('click', () => {
+        const expanded = navToggle.getAttribute('aria-expanded') === 'true';
+        navToggle.setAttribute('aria-expanded', !expanded);
+        navMenu.classList.toggle('open');
+      });
+      navMenu.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', () => {
+          navToggle.setAttribute('aria-expanded', 'false');
+          navMenu.classList.remove('open');
+        });
+      });
+    }
   </script>
 
 </body>
